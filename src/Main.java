@@ -21,19 +21,19 @@ public class Main {
 
     public static void task1() {
         int[] arr = generateRandomArray(); // объявление массива и вызов метода сгенерировать массив
-        int sum = -1; // создание переменной для подсчета суммы трат
-        for (final int randomArr : generateRandomArray()) { // цикл foreach для прохода всех элементов массива
+        double sum = 0; // создание переменной для подсчета суммы трат
+        for (final int randomArr : arr) { // цикл foreach для прохода всех элементов массива
             sum += randomArr; // сумма всех трат
             //System.out.println(randomArr); // вывод в консоль элементов массива (использовалась для проверки)
         }
-        System.out.println("Сумма трат за месяц составила " + sum + " рублей."); // вывод в консоль результата по заданию
+        System.out.println(sum); // вывод в консоль результата по заданию
     }
 
     public static void task2() {
         int[] arr = generateRandomArray(); // объявление массива и вызов метода сгенерировать массив
-        int maxValue = -1; // объявление переменной для расчета максимального значения
+        int maxValue = arr[0]; // объявление переменной для расчета максимального значения
         int minValue = arr[0]; // объявление переменной для расчета минимального значения
-        for (final int randomArr : generateRandomArray()) { // цикл foreach для прохода всех элементов массива
+        for (final int randomArr : arr) { // цикл foreach для прохода всех элементов массива
             if (randomArr > maxValue) { //условный оператор сравнения элементов массива для нахождения максимального значения
                 maxValue = randomArr; // присвоение в переменную maxValue наибольшего значения элементов массива
             }
@@ -49,17 +49,22 @@ public class Main {
         int[] arr = generateRandomArray(); // объявление массива и вызов метода сгенерировать массив
         double sum = 0; //объявление переменной для расчета суммы элементов массива
         double mid = 0; //объявление переменной для расчета среднего значения элементов массива
-        for (int randomArr : generateRandomArray()) { // цикл foreach для прохода всех элементов массива
+        for (int randomArr : arr) { // цикл foreach для прохода всех элементов массива
             sum += randomArr; // расчет суммы элементов массива
         }
         System.out.printf("Сумма трат за месяц %.2f рублей.\n", sum); // вывод значения суммы элементов массива (для наглядности)
-        mid = sum / generateRandomArray().length; // расчет среднего значения
+        mid = sum / arr.length; // расчет среднего значения
         System.out.printf("Средняя сумма трат за месяц составила %.2f рублей.\n", mid); // вывод в консоль результата по заданию
     }
 
     public static void task4() {
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'}; // объявление символьного массива с инициализацией
-        for (int i = 0; i < (reverseFullName.length - 1) / 2; i++) { // цикл для прохода половины элементов массива
+        for (int i = reverseFullName.length - 1; i >= 0; i--) { //добавил код по заданию, но и свой вариант не стал удалять)/
+            System.out.printf("%s", reverseFullName[i]);
+        }
+        System.out.println(" ");
+
+        for (int i = 0; i < reverseFullName.length / 2; i++) { // цикл для прохода половины элементов массива
             char temp; // объявление переменной для хранения элементов массива
             temp = reverseFullName[reverseFullName.length - i - 1]; // присвоение переменной temp значения последнего элемента исходного массива
             reverseFullName[reverseFullName.length - i - 1] = reverseFullName[i]; // присвоение последнему элементу исходного массива значения первого элемента
